@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:ital@1&display=swap');
+
+body{
+    background: #1E2027;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.heading{
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    font-family: 'Taviraj', serif;
+    font-size: 3em;
+}
+
+.player{
+    display: flex;
+    justify-content: center;
+}
+
+.turntable{
+    position: absolute;
+    margin: auto;
+    display: block;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    width: 310px;
+    height:280px;
+    background: #95643C;
+    border-radius: 5%;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.7);
+  }
+  
+.record {
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    width: 200px;
+    height: 200px;
+    background: black;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+  }
+  
+@keyframes spin {
+    0% {
+      transform: none;
+    }
+    
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+.record::before {
+    content: '';
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: repeating-radial-gradient(black, black 5px, #1C1C1C 6px, #1C1C1C 7px);
+    border-radius: 50%;
+  }
+  
+.overlay {
+    content: '';
+    left: 35px;
+    top: 35px;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, transparent, 40%, rgba(255,255,255,0.35), 60%, transparent);
+    border-radius: 50%;
+  }
+  
+.inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(white, white 50%, #F796A8 50%, #F796A8);
+    border-radius: 50%;
+  }
+  
+.inner::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+  }
+  
+.inner::after {
+    content: '100 Days';
+    width: 55px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 8px;
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    transform: translateX(-50%);
+  }
+  
+.arm-holder {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: gray;
+    border-radius: 50%;
+    right: 20px;
+    top: 40px;
+  }
+  
+.arm-holder::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background: #939393;
+    border-radius: 50%;
+  }
+  
+.arm {
+    position: absolute;
+    right: 13px;
+    width: 60px;
+    top: 10px;
+    height: 110px;
+    border: 10px solid #939393;
+    transform: skew(-20deg, -20deg);
+    transform-origin: top right;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-radius: 0 0 30% 0;
+    animation: armTwitch 0.5s infinite;
+    animation-direction: alternate-reverse;
+  }
+  
+@keyframes armTwitch {
+    0% {
+       transform: skew(-20deg, -20deg);
+    }
+    
+    100% {
+      transform: skew(-20deg, -20deg) rotate(1deg);
+    }
+  }
+  
+.arm::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: gray;
+    transform: skew(20deg, 20deg) rotate(75deg);
+    top: 98px;
+    left: -10px;
+    border-radius: 20%;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+  }
+  
+.dial {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    background: #333642;
+    border-radius: 50%;
+  }
+  
+.dial::before {
+    content: '';
+    left: 50%;
+    transform: translateX(-50%);
+    top: 2px;
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+}
+  
+.link{
+    position: absolute;
+    margin: auto;
+    margin-top: 70%;
+    margin-left: 43%;
+    font-family: 'Taviraj', serif;
+}
+
+a{text-decoration: none; }
+a:visited { text-decoration: none; color:white; }
+a:hover { text-decoration: none; color:white; }
+a:focus { text-decoration: none; color:white; }
+a:hover, a:active { text-decoration: none; color:grey}

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Taviraj:ital@1&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden; /* Hide horizontal scrollbar */
+    background-color: #1E2027;
+}
+
+.vinyl-container {
+    position: absolute;
+    left: -200px; /* Adjust this value to control the initial position */
+    top: 30%;
+    transform: translateY(-50%) rotate(0deg); /* Add initial rotation */
+    animation: rollAndRotate 2s ease-in-out forwards;
+}
+
+.vinyl {
+    width: 400px; /* Set the width and height according to your image size */
+    height: 400px;
+    border-radius: 50%; /* Make it round */
+    transition: transform 1s; /* Add transition for continuous rotation */
+}
+
+@keyframes rollAndRotate {
+    0% {
+        transform: translateX(-100%) rotate(0deg); /* Start with no rotation */
+    }
+    100% {
+        transform: translateX(100%) rotate(360deg); /* Rotate 360 degrees */
+    }
+}
+
+.text{
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px;
+    font-family: 'Taviraj', serif;
+    font-size: 2em;
+}
+
+.link{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px;
+    font-family: 'Taviraj', serif;
+    font-size: 2em;
+}
