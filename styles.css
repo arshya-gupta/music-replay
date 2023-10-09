@@ -1,0 +1,587 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;600&family=Taviraj:ital@1&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+/* Setting up root variables */
+:root{
+    --bg: #F0DBA5;
+    --text: #151515;
+    --yellow: #EDB74D;
+    --red: #EB6666;
+    --green: #6FB18A;
+}
+
+body{
+    margin:0;
+    background-color: var(--bg);
+    font-family: 'AR One Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+body::before,
+body::after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 40%;
+}
+
+body::before {
+    background: #8C8C8C;
+    filter: url(#noiseFilter);
+    height: 700%;
+
+}
+
+/* Blobs */
+.blob-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -2;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    right: 5em;
+}
+  
+.blob {
+    border-radius: 100px;
+    filter: blur(60px);
+} 
+
+.yellow {
+    background-color: var(--yellow);
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    height: 200px;
+    width: 200px;
+    
+    animation: yellow 8s infinite ease;
+}
+  
+.green {
+    background-color: var(--green);
+    position: absolute;
+    top: 80px;
+    right: -20px;
+    height: 200px;
+    width: 250px;
+    
+    animation: green 8s infinite ease;
+}
+  
+.red {
+    background-color: var(--red);
+    position: absolute;
+    right: 0;
+    top: 300px;
+    height: 250px;
+    width: 200px;
+    
+    animation: red 8s infinite linear;
+}
+
+@keyframes yellow {
+    0% {top: 200px; left: 100px; transform: scale(1);}
+    30% {top: 300px; left: 150px; transform: scale(1.2);}
+    60% {top: 100px; left: 200px; transform: scale(1.3);}
+    100% {top: 200px; left: 100px; transform: scale(1);}
+}
+  
+@keyframes green {
+    0% {top: 80px; right: -20px; transform: scale(1.2);}
+    30% {top: 300px; right: -20px;transform: scale(1);}
+    60% {top: 200px; right: 100px;transform: scale(1);}
+    100% {top: 80px; right: -20px; transform: scale(1.2);}
+}
+  
+@keyframes red {
+    0% {top: 250px; right: 0px; transform: scale(1);}
+    30% {top: 150px; right: 150px;transform: scale(1.4);}
+    60% {top: 250px; right: 100px;transform: scale(1);}
+    100% {top: 250px; right: 0px; transform: scale(1);}
+}
+
+@media only screen and (max-width: 1000px) {
+    body {
+      margin: 1em;
+    }
+}
+
+/* Landing/Initial Text */
+.landing-text{
+    font-family: 'Gilroy-Medium', sans-serif;
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    font-size: 3em;
+}
+
+.bold{
+    font-family: 'gilroy-bold';
+    position: absolute;
+    top: 28%;
+    font-size: 3.1em;;
+}
+
+/* vinyl player */
+svg{
+    width:220%;
+    visibility:hidden;
+    position: relative;
+    top: 250px;
+    left: 100%;
+}
+
+#titleGroup text{
+    font-size:5px;
+    fill:#ededed;
+    letter-spacing:2.25px;
+    text-rendering: optimizeSpeed;
+  }
+  
+#info{
+    font-size:10px;
+    fill:#9F978D;
+    text-anchor:middle;
+}
+
+#info a{
+    font-size:10px;
+    fill:#9F978D;
+    text-anchor:middle;
+    font-weight:700;
+}
+
+#dragger{
+    cursor:move;
+}
+
+/* Rolling vinyls */
+.roll-vinyl{
+    position: absolute;
+    top: 110%;
+}
+
+.rolling{
+    position: absolute;
+    left: -1350px;
+    transform: rotate(0deg);
+    transition: left 2.5s, transform 2.5s;
+}
+
+.text-trail{
+    position: absolute;
+    top: 190px;
+    left: 0;
+    transform: translateX(-600%); /* Initially, move the text off-screen to the left */
+    opacity: 0; /* Initially, make the text invisible */
+    transition: transform 2.25s, opacity 2.0s; 
+    white-space: nowrap;
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 2.5em;
+}
+
+.rolling-two{
+    position: absolute;
+    left: -1350px;
+    top: 400px;
+    transform: rotate(0deg);
+    transition: left 2.5s, transform 2.5s;
+}
+
+.text-trail-two{
+    position: absolute;
+    top: 590px;
+    left: 0;
+    transform: translateX(-600%); /* Initially, move the text off-screen to the left */
+    opacity: 0; /* Initially, make the text invisible */
+    transition: transform 2.25s, opacity 2.0s; 
+    white-space: nowrap;
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 2.5em;
+}
+
+.rolling-three{
+    position: absolute;
+    left: -1350px;
+    top: 800px;
+    transform: rotate(0deg);
+    transition: left 2.5s, transform 2.5s;
+}
+
+.text-trail-two{
+    position: absolute;
+    top: 590px;
+    left: 0;
+    transform: translateX(-600%); /* Initially, move the text off-screen to the left */
+    opacity: 0; /* Initially, make the text invisible */
+    transition: transform 2.25s, opacity 2.0s; 
+    white-space: nowrap;
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 2.5em;
+}
+
+.text-trail-three{
+    position: absolute;
+    top: 990px;
+    left: 0;
+    transform: translateX(-600%); /* Initially, move the text off-screen to the left */
+    opacity: 0; /* Initially, make the text invisible */
+    transition: transform 2.25s, opacity 2.0s; 
+    white-space: nowrap;
+    font-family: 'gilroy-bold', sans-serif;
+    font-size: 2.5em;
+}
+
+.end-roll{
+    position: absolute;
+    top: 1300px;
+    left: -520px;
+    white-space: nowrap;
+    font-family: 'gilroy-bold';
+    font-size: 5em;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.mid{
+    opacity: 50%;
+}
+
+/* Album Cards */
+.album-card{
+    position: absolute;
+    top: 3000px;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+
+}
+
+.album-one-pic{
+    position: absolute;
+    background-color: #4D4742;
+    width: 300px;
+    height: 0;
+    transition: height 1s ease, background-color 1s ease;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.album-text{
+    position: absolute;
+    top: -400px;
+    left: 80px;
+    white-space: nowrap;
+    font-family: 'gilroy-bold';
+    font-size: 5em;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.text{
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    font-family: 'gilroy-bold';
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.artist{
+    font-family: 'Gilroy-Medium', sans-serif;
+}
+
+.album-card-two{
+    position: absolute;
+    top: 3000px;
+    left: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+.album-two-pic{
+    position: absolute;
+    background-color: #4D4742;
+    width: 300px;
+    height: 0;
+    transition: height 1s ease, background-color 1s ease;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-two{
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    font-family: 'gilroy-bold';
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.album-card-three{
+    position: absolute;
+    top: 3500px;
+    left: 750px;
+    width: 100%;
+    height: 100%;
+}
+
+.album-three-pic{
+    position: absolute;
+    background-color: #4D4742;
+    width: 300px;
+    height: 0;
+    transition: height 1s ease, background-color 1s ease;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-three{
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    font-family: 'gilroy-bold';
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.album-card-four{
+    position: absolute;
+    top: 4000px;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+.album-four-pic{
+    position: absolute;
+    background-color: #4D4742;
+    width: 300px;
+    height: 0;
+    transition: height 1s ease, background-color 1s ease;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-four{
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    font-family: 'gilroy-bold';
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.album-card-five{
+    position: absolute;
+    top: 4000px;
+    left: 1200px;
+    width: 100%;
+    height: 100%;
+}
+
+.album-five-pic{
+    position: absolute;
+    background-color: #4D4742;
+    width: 300px;
+    height: 0;
+    transition: height 1s ease, background-color 1s ease;
+    border-radius: 5%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.text-five{
+    position: absolute;
+    top: 360px;
+    width: 300px;
+    font-family: 'gilroy-bold';
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.end-album{
+    position: absolute;
+    top: 4600px;
+    left: 450px;
+    white-space: nowrap;
+    font-family: 'gilroy-bold';
+    font-size: 5em;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.personality{
+    position: absolute;
+    top: 4800px;
+    left: 390px;
+    white-space: nowrap;
+    font-family: 'gilroy-bold';
+    font-size: 5em;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.you{
+    opacity: 50%;
+    font-style: italic;
+}
+
+.genre{
+    position: absolute;
+    top: 5000px;
+    left: 390px;
+    white-space: nowrap;
+    font-family: 'gilroy-bold';
+    font-size: 5em;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+.list{
+    font-family: 'gilroy-bold';
+    font-size: 5em;
+}
+
+.one{
+    position: absolute;
+    top: 5200px;
+    left: 390px;
+    transition: left 1.5s;
+}
+
+.two{
+    position: absolute;
+    top: 5300px;
+    left: 390px;
+    transition: left 1.5s;
+}
+
+.three{
+    position: absolute;
+    top: 5400px;
+    left: 390px;
+    transition: left 1.5s;
+}
+.four{
+    position: absolute;
+    top: 5500px;
+    left: 390px;
+    transition: left 1.5s;
+}
+
+.five{
+    position: absolute;
+    top: 5600px;
+    left: 390px;
+    transition: left 1.5s;
+}
+
+.genreCircle{
+    position: absolute;
+    top:5290px;
+    left: 820px;
+    transition: left 1.25s;
+}
+
+.genreCircleTwo{
+    position: absolute;
+    top:5390px;
+    left: 820px;
+    transition: left 1.25s;
+}
+
+.genreCircleThree{
+    position: absolute;
+    top:5490px;
+    left: 820px;
+    transition: left 1.25s;
+}
+
+.genreCircleFour{
+    position: absolute;
+    top:5590px;
+    left: 820px;
+    transition: left 1.25s;
+}
+
+.genreCircleFive{
+    position: absolute;
+    top:5690px;
+    left: 820px;
+    transition: left 1.25s;
+}
+
+.circle {
+    /* position: absolute;
+    top:5290px;
+    left: 820px; */
+    width: 75px;
+    height: 75px;
+    background-color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    cursor:pointer;
+}
+
+.wave {
+    background-color: #3f68c5;
+    position: absolute;
+    top: 110%;
+    height: 200%;
+    width: 200%;
+    border-radius: 38%;
+    left: -50%;
+    transform: rotate(360deg);
+    transition: all 5s ease;
+    animation: wave 30s linear infinite;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(3600deg); }
+}
+  
+.circle:hover .wave {
+    top: 0%;
+}
+
+.colOne{
+    background-color: #EB6666;
+}
+
+.colTwo{
+    background-color: #62BEC1;
+}
+
+.colThree{
+    background-color: #22162B;
+}
+
+.colFour{
+    background-color: #E28413;
+}
+
+.colFive{
+    background-color: #816C61;
+}
